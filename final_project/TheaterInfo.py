@@ -57,4 +57,10 @@ def getTheaterInfo(location, sub_location):
         theater_inform.append(d)
     return theater_inform
 
-getTheaterInfo(2,1)
+for t in getTheaterInfo(0,0):
+    print(t['name'])
+
+    if "씨네드쉐프" in t['name'] or "CGV" in t['name']:
+        print(MovieInfo.getMovieInfoFromCGV(t['name']))
+    else:
+        print(MovieInfo.getMovieInfoFromNaver(t['code']))
