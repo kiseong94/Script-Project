@@ -1,8 +1,9 @@
 import urllib.request
 import urllib.parse
-from bs4 import BeautifulSoup
+import MovieInfo
 import json
 import re
+
 
 location_table = ["서울특별시", "인천광역시", "경기도", "세종특별자치시","대전광역시","충청도","강원도","광주광역시","전라도","대구광역시","울산광역시","부산광역시","경상도","제주특별자치도"]
 sub_location_table = {
@@ -29,32 +30,31 @@ def GetURL(location,sub_loaction):
     URL = URL.replace("sub", urllib.parse.quote(sub_loaction))
     return URL
 
+def getTheaterInfo(location, sub_location):
+    baseURL = "http://movie.naver.com/movie/bi/ti/running.nhn?code="
+    #URL = baseURL + str(theatercode)
+    req = urllib.request.Request(GetURL(location_table[location],sub_location_table[location_table[location]][sub_location]))
+    data = urllib.request.urlopen(req).read()
 
-search_key1=""
-search_key2=""
-baseURL = "http://movie.naver.com/movie/bi/ti/running.nhn?code="
-#URL = baseURL + str(theatercode)
-req = urllib.request.Request(GetURL(location_table[2],sub_location_table[location_table[2]][1]))
-data = urllib.request.urlopen(req).read()
+    data = data.decode("UTF-8")
+    data = data[data.find("data"):]
 
-data = data.decode("UTF-8")
+    #print(data)
 
+    m = re.search('\[(.*?)\]', str(data))
+    if m:
+        #print(m.group(1))
+        data = m.group(1)
+    data = "["+data+"]"
+    #print(data)
+    json_data = json.loads(data)
 
-data = data[data.find("data"):]
+    theater_inform = []
 
-#print(data)
+    for item in json_data:
+        code = re.search('\d+',item["endpage"])
+        d = dict(name = item["name"],code = code.group(0), longitude = item["longitude"], latitude = item["latitude"])
+        theater_inform.append(d)
+    return theater_inform
 
-m = re.search('\[(.*?)\]', str(data))
-if m:
-    #print(m.group(1))
-    data = m.group(1)
-data = "["+data+"]"
-#print(data)
-json_data = json.loads(data)
-
-theater_list = []
-
-for item in json_data:
-    print(item)
-
-
+getTheaterInfo(2,1)
