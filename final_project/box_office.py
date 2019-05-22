@@ -1,6 +1,19 @@
 import urllib.request
 from bs4 import BeautifulSoup
+from PIL import Image,ImageTk
+import io
 import re
+
+# dict 형식 = {"rank" : 랭킹, "name": 제목 ,"img" : 이미지 URL}
+
+def GetImageFromURL(url):
+    u = urllib.request.urlopen(url)
+    raw_data = u.read()
+    im = Image.open(io.BytesIO(raw_data))
+    image = ImageTk.PhotoImage(im)
+    u.close()
+    return image
+
 
 
 def GetBoxOfficeRankInfo():
@@ -23,14 +36,12 @@ def GetBoxOfficeRankInfo():
         for i in range(len(l1)):
             name = re.search('\>(.*?)\<', str(l1[i]))
             img_url = re.search('src="(.*?)"', str(l2[i]))
-            info = dict( rank = rank ,name = name.group(1), img = img_url.group(1))
+
+            info = dict( rank = rank ,name = name.group(1), img = GetImageFromURL(img_url.group(1)))
             page_list.append(info)
             rank+=1
         BoxOfficeRankInfo.append(page_list)
+    # for i in BoxOfficeRankInfo:
+    #     print(i)
+    return BoxOfficeRankInfo
 
-    for i in BoxOfficeRankInfo:
-        print(i)
-
-
-
-GetBoxOfficeRankInfo()

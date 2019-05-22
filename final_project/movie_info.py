@@ -31,7 +31,6 @@ def SearchMovie(name):
 def GetSearchResult(url, page):
     PageMovieInfoList = []
     url = url+str(page+1)
-    print(url)
     req = requests.get(url)
     req.encoding = 'euc-kr'
     bs = BeautifulSoup(req.text, 'html.parser')
@@ -94,6 +93,35 @@ def GetSearchResult(url, page):
     for i in PageMovieInfoList:
         print(i)
 
+def GetDetailInfo(url):
+    info = dict()
+    req = requests.get("https://movie.naver.com/movie/bi/mi/basic.nhn?code=168323")
+    req.encoding = 'utf-8'
+    bs = BeautifulSoup(req.text, 'html.parser')
+
+    l = bs.find("div",{"class":"story_area"})
+
+    e1 = l.find("h5",{"class":"h_tx_story"})
+    story = []
+    story_head = re.search('\>(.*?)\<',str(e1))
+    if story_head:
+        story.append(story_head.group(1))
+
+    e2 = l.find("p", {"class": "con_tx"})
+    story_body = re.findall('>(.*?)<', str(e2))
+    info['story'] = story+story_body
+
+    l = bs.find("div",{"class":"mv_info_area"}).find("div",{"class":"poster"}).find("img")
+    imgURL = re.search('src="(.*?)"/>', str(l))
+    if imgURL:
+        info['imgURL'] = imgURL.group(1)
+    else:
+        imgURL = re.search("src='(.*?)'", str(l))
+        if imgURL:
+            info['imgURL'] = imgURL.group(1)
+
+    return info
+
 
 # def SearchMovie(name):
 #
@@ -112,5 +140,4 @@ def GetSearchResult(url, page):
 #
 #     return MovieList
 
-#GetMovieInfo("영화 반지")
-SearchMovie("해리포터")
+GetDetailInfo(1)
