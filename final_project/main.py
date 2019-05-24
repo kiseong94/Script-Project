@@ -33,12 +33,10 @@ class MovieQuitous:
         self.MovieInfo = None
         self.MovieSearchEntry = None
         self.MovieDetailInfo = None
-        self.canvas = None
-        self.DetailFrame = None
-        self.canvas_id = None
+        self.TheaterList = None
+        self.TheaterInfo = None
         self.scrollbar =None
         self.LocationComboBox =None
-
         self.LoadImage()
         self.frame1_page = 0
         self.frame2_page = 0
@@ -157,14 +155,44 @@ class MovieQuitous:
     def GetFrame3(self):
         frame = tk.Frame(self.window,width=1400, height=680)
         if self.LocationComboBox==None:
-            self.LocationComboBox = tkinter.ttk.Combobox(frame,state="readonly", height=10, values=theater_info.location_table)
+            self.LocationComboBox = tkinter.ttk.Combobox(frame,state="readonly", width=15, height=10, values=theater_info.location_table)
         else:
-            self.LocationComboBox = tkinter.ttk.Combobox(frame,textvariable="서울특별시", state="readonly", height=10,values=theater_info.location_table)
-        self.LocationComboBox.place(x=0,y=0)
+            self.LocationComboBox = tkinter.ttk.Combobox(frame,textvariable="서울특별시", width=15, state="readonly", height=10,values=theater_info.location_table)
+        self.LocationComboBox.place(x=100,y=2)
         self.LocationComboBox.bind("<<ComboboxSelected>>", self.ComboBoxCallBack)
 
-        self.SubLocationComboBox = tkinter.ttk.Combobox(frame, state="readonly", height=10, values=theater_info.sub_location_table[self.LocationComboBox.get()])
-        self.SubLocationComboBox.place(x=150, y=0)
+        self.SubLocationComboBox = tkinter.ttk.Combobox(frame, state="readonly", width=25, height=10, values=theater_info.sub_location_table[self.LocationComboBox.get()])
+        self.SubLocationComboBox.place(x=350, y=2)
+        tk.Button(frame, relief='flat', bg='whitesmoke', image=self.SearchButtonImage,command = self.Frame3_GetTheaterList).place(x=580, y=-3)
+
+        SubFrame = tk.Frame(frame,width=1406,height=656,bg='snow3',highlightbackground="snow4", highlightthickness=3)
+        TheaterListFrame = tk.Frame(SubFrame,width=275,height=656,highlightbackground="snow4", highlightthickness=3)
+
+        TheaterListSubFrame = tk.Frame(TheaterListFrame)
+        tk.Label(TheaterListSubFrame,text='영 화 관',width=24,bd=3, relief='raised',
+                          bg='lavender', fg='black',font=('HY견고딕', 10,'italic')).pack()
+        if self.TheaterList != None:
+            for theater in self.TheaterList:
+                tk.Button(TheaterListSubFrame,width=25,text=theater["name"],cursor='hand2',bd=6, relief='raised',
+                          bg='black', fg='white',font=('helvetica', 10, 'italic'),command = partial(self.GetTheaterInfo,theater)).pack()
+
+        TheaterInfoFrame = tk.Frame(SubFrame,width=1200,height=656,highlightbackground="snow4", highlightthickness=3)
+
+        if self.TheaterInfo != None:
+            tk.Label(TheaterInfoFrame, text=self.TheaterInfo['name'], font=('맑은 고딕', 18, 'bold')).place(x=10, y=10)
+            TheaterInfoSubFrame = tk.Frame(TheaterInfoFrame)
+            for info in self.TheaterInfo['info']:
+                tk.Label(TheaterInfoSubFrame,text=info['movie'],font=('맑은 고딕', 10, 'bold')).pack(anchor='w')
+                TimeFrame = tk.Frame(TheaterInfoSubFrame)
+                for time in info['time']:
+                    tk.Label(TimeFrame, text=time,relief = 'groove').pack(side='left')
+                TimeFrame.pack(anchor='w')
+            TheaterInfoSubFrame.place(x=50, y=60)
+
+        TheaterInfoFrame.place(x=300,y=-3)
+        TheaterListSubFrame.place(x=0,y=0)
+        TheaterListFrame.place(x=-3,y=-3)
+        SubFrame.place(x=-3,y=30)
 
         return frame
 
@@ -205,6 +233,7 @@ class MovieQuitous:
         self.IsMovieSearched = True
         self.ShowDetail = False
         if self.MovieSearchResult != None:
+            self.frame2_page = 0
             self.Frame2_GetMovieInfo()
         else:
             self.MovieInfo = None
@@ -220,14 +249,22 @@ class MovieQuitous:
         self.MovieDetailInfo = {**self.MovieDetailInfo,**data}
         self.ChangeFrame(2)
 
+    def Frame3_GetTheaterList(self):
+        if self.LocationComboBox.get() != "":
+            self.TheaterInfo = None
+            self.TheaterList = theater_info.getTheaterInfo(self.LocationComboBox.get(),self.SubLocationComboBox.get())
+            self.ChangeFrame(3)
+
+    def GetTheaterInfo(self,theater):
+        self.TheaterInfo = theater_info.GetMovieInfo(theater)
+        self.TheaterInfo['name'] = theater['name']
+        self.ChangeFrame(3)
+
     def FrameConfigure(self,event):
         self.canvas.configure(scrollregion = self.canvas.bbox("all"))
 
     def ComboBoxCallBack(self,event):
         self.ChangeFrame(3)
-
-
-
 
     def LoadImage(self):
         self.bg = tk.PhotoImage(file="image/bg0.gif")

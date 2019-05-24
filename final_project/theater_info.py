@@ -81,7 +81,7 @@ def getTheaterInfo(location, sub_location):
     return theater_inform
 
 def getMovieInfoFromNaver(theatercode):
-    movie_inform_list = []
+    movie_inform_list = dict()
 
     baseURL = "http://movie.naver.com/movie/bi/ti/running.nhn?code="
     URL =  baseURL + str(theatercode)
@@ -108,8 +108,12 @@ def getMovieInfoFromNaver(theatercode):
         if time:
             time_list.append(time)
 
+    tmp_lst = []
     for i in range(len(movie_name_list)):
-        movie_inform_list.append((movie_name_list[i],time_list[i]))
+        d = dict(movie=movie_name_list[i], time=time_list[i])
+        tmp_lst.append(d)
+
+    movie_inform_list['info'] = tmp_lst
 
     return movie_inform_list
 
@@ -117,7 +121,7 @@ def getMovieInfoFromNaver(theatercode):
 def getMovieInfoFromCGV(theater):
     global CGVTheaterTable
 
-    movie_inform_list = []
+    movie_inform_list = dict()
 
     theater_name = theater.replace(" ","")
     baseURL = "http://www.cgv.co.kr/common/showtimes/iframeTheater.aspx?areacode=key1&theatercode=key0&date="
@@ -145,21 +149,18 @@ def getMovieInfoFromCGV(theater):
         name = re.search('\s+(.*)\<', str(i))
         if name:
             movie_name_list.append(name.group(1))
-
+    tmp_lst = []
     for i in range(len(movie_name_list)):
-        movie_inform_list.append((movie_name_list[i],time_list[i]))
+        d = dict(movie=movie_name_list[i], time=time_list[i])
+        tmp_lst.append(d)
 
+    movie_inform_list['info'] = tmp_lst
     return movie_inform_list
 
 
+def GetMovieInfo(theater):
+    if "씨네드쉐프" in theater['name'] or "CGV" in theater['name']:
+        return getMovieInfoFromCGV(theater['name'])
+    else:
+        return getMovieInfoFromNaver(theater['code'])
 
-
-
-#
-# for t in getTheaterInfo(0,0):
-#     print(t['name'])
-#
-#     if "씨네드쉐프" in t['name'] or "CGV" in t['name']:
-#         print(getMovieInfoFromCGV(t['name']))
-#     else:
-#         print(getMovieInfoFromNaver(t['code']))
