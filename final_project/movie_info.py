@@ -1,10 +1,19 @@
 import urllib.request
 import urllib.parse
 import requests
-import http.client
 from bs4 import BeautifulSoup
-import json
+from PIL import Image,ImageTk
+import io
 import re
+
+
+def GetImageFromURL(url):
+    u = urllib.request.urlopen(url)
+    raw_data = u.read()
+    im = Image.open(io.BytesIO(raw_data))
+    image = ImageTk.PhotoImage(im)
+    u.close()
+    return image
 
 
 def SearchMovie(name):
@@ -53,7 +62,7 @@ def GetSearchResult(url, page):
 #이미지 링크
         image_data = e.find("img")
         image = re.search('src="(.*?)"',str(image_data))
-        info["imgURL"] = image.group(1)
+        info["img"] = GetImageFromURL(image.group(1))
 #기타
         genre = []
         nation = []
@@ -90,35 +99,38 @@ def GetSearchResult(url, page):
         PageMovieInfoList.append(info)
 
 
-    for i in PageMovieInfoList:
-        print(i)
+    return PageMovieInfoList
 
 def GetDetailInfo(url):
     info = dict()
-    req = requests.get("https://movie.naver.com/movie/bi/mi/basic.nhn?code=168323")
+    req = requests.get(url)
     req.encoding = 'utf-8'
     bs = BeautifulSoup(req.text, 'html.parser')
 
     l = bs.find("div",{"class":"story_area"})
+    if l:
+        e1 = l.find("h5",{"class":"h_tx_story"})
 
-    e1 = l.find("h5",{"class":"h_tx_story"})
-    story = []
-    story_head = re.search('\>(.*?)\<',str(e1))
-    if story_head:
-        story.append(story_head.group(1))
+        story_head = re.search('\>(.*?)\<',str(e1))
+        if story_head:
+            info['story_head'] = story_head.group(1)
 
-    e2 = l.find("p", {"class": "con_tx"})
-    story_body = re.findall('>(.*?)<', str(e2))
-    info['story'] = story+story_body
+        story = ""
+        e2 = l.find("p", {"class": "con_tx"})
+        story_body = re.findall('>(.*?)<', str(e2))
+
+        for s in story_body:
+            story += s + "\n"
+        info['story'] = story
 
     l = bs.find("div",{"class":"mv_info_area"}).find("div",{"class":"poster"}).find("img")
     imgURL = re.search('src="(.*?)"/>', str(l))
     if imgURL:
-        info['imgURL'] = imgURL.group(1)
+        info['big_img'] = GetImageFromURL(imgURL.group(1))
     else:
         imgURL = re.search("src='(.*?)'", str(l))
         if imgURL:
-            info['imgURL'] = imgURL.group(1)
+            info['big_img'] = GetImageFromURL(imgURL.group(1))
 
     return info
 
@@ -139,5 +151,3 @@ def GetDetailInfo(url):
 #         GetMovieInfo(i["movieNm"])
 #
 #     return MovieList
-
-GetDetailInfo(1)
