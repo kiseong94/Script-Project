@@ -46,6 +46,7 @@ class MovieQuitous:
 
         menu = tk.Frame(self.window,width=1400,height=120,bg='red')
         menu.pack()
+        tk.Label(menu,image = self.TitleImage,bg='red').place(x=30,y=0)
         tk.Button(menu,relief='flat',bg='red', image = self.MenuButtonImages[0],command = lambda : self.ChangeFrame(1) ).place(x=750, y=60)
         tk.Button(menu,relief='flat',bg='red', image = self.MenuButtonImages[1],command = lambda : self.ChangeFrame(2)).place(x=960, y=60)
         tk.Button(menu,relief='flat',bg='red', image = self.MenuButtonImages[2],command = lambda : self.ChangeFrame(3)).place(x=1170, y=60)
@@ -95,7 +96,7 @@ class MovieQuitous:
         tk.Label(frame,image=self.Frame2LabelImage[0],bg='white').place(x=5,y=-2)
         self.MovieSearchEntry = tk.Entry(frame,width=50,bg='gray90')
         self.MovieSearchEntry.place(x=125,y=3)
-        tk.Button(frame,relief='flat', bg='white', image = self.SearchButtonImage ,command = self.Frame2_SearchMovie).place(x=530, y=-3)
+        tk.Button(frame,relief='flat', bg='white', image = self.SearchButtonImage[0] ,command = self.Frame2_SearchMovie).place(x=530, y=-3)
 
         SubFrame = tk.Frame(frame,width=1406,height=656,bg='wheat1',highlightbackground="wheat4", highlightthickness=3)
         SubFrame.place(y=30,x=-3)
@@ -165,7 +166,7 @@ class MovieQuitous:
 
         self.SubLocationComboBox = tkinter.ttk.Combobox(frame, state="readonly", width=25, height=10, values=theater_info.sub_location_table[self.LocationComboBox.get()])
         self.SubLocationComboBox.place(x=395, y=2)
-        tk.Button(frame, relief='flat', bg='LightBlue1', image=self.SearchButtonImage,command = self.Frame3_GetTheaterList).place(x=620, y=-3)
+        tk.Button(frame, relief='flat', bg='LightBlue1', image=self.SearchButtonImage[1],command = self.Frame3_GetTheaterList).place(x=623, y=-3)
 
         SubFrame = tk.Frame(frame,width=1406,height=656,bg='snow3',highlightbackground="grey50", highlightthickness=3)
         TheaterListFrame = tk.Frame(SubFrame,width=275,height=656,highlightbackground="grey50", highlightthickness=3)
@@ -320,8 +321,9 @@ class MovieQuitous:
 
     def LoadImage(self):
         self.bg = tk.PhotoImage(file="image/bg0.gif")
+        self.TitleImage = tk.PhotoImage(file="image/title.png")
         self.MenuButtonImages = [tk.PhotoImage(file="image/button1.png"),tk.PhotoImage(file="image/button2.png"),tk.PhotoImage(file="image/button3.png")]
-        self.SearchButtonImage = tk.PhotoImage(file="image/search_button.png")
+        self.SearchButtonImage = [tk.PhotoImage(file="image/search_button.png"),tk.PhotoImage(file="image/search_button2.png")]
         self.Frame2LabelImage = [tk.PhotoImage(file="image/f2_label1.png")]
         self.Frame3LabelImage = [tk.PhotoImage(file="image/f3_label1.png"),tk.PhotoImage(file="image/f3_label2.png")]
 
