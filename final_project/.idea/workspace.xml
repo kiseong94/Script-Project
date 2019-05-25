@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e3eafed-50f6-4141-bc7a-bc47bda5c3f3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/theater_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/theater_info.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,26 +15,26 @@
     <session id="-1412129005">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="11" />
+          <entry key="project.closed" value="12" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.10" value="2" />
+          <entry key="project.open.time.10" value="4" />
           <entry key="project.open.time.7" value="2" />
           <entry key="project.open.time.8" value="2" />
           <entry key="project.open.time.9" value="3" />
-          <entry key="project.opened" value="11" />
+          <entry key="project.opened" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="23" />
-          <entry key="py" value="13368" />
+          <entry key="py" value="13804" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="23" />
-          <entry key="Python" value="13368" />
+          <entry key="Python" value="13804" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -58,7 +58,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/movie_info.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1627">
+            <state relative-caret-position="95">
               <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
@@ -71,8 +71,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/theater_info.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="354">
-              <caret line="117" column="28" lean-forward="true" selection-start-line="117" selection-start-column="28" selection-end-line="117" selection-end-column="28" />
+            <state relative-caret-position="2147">
+              <caret line="117" column="28" selection-start-line="117" selection-start-column="28" selection-end-line="117" selection-end-column="28" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
                 <marker date="1558731581829" expanded="true" signature="5109:5289" ph="..." />
@@ -93,7 +93,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://C:/Program Files/Python37/Lib/urllib/parse.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
+            <state relative-caret-position="14972">
               <caret line="790" selection-start-line="790" selection-end-line="790" />
             </state>
           </provider>
@@ -111,13 +111,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="171" column="63" selection-start-line="171" selection-start-column="63" selection-end-line="171" selection-end-column="63" />
+            <state relative-caret-position="191">
+              <caret line="200" column="72" lean-forward="true" selection-start-line="200" selection-start-column="72" selection-end-line="200" selection-end-column="72" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
-                <marker date="1558732618799" expanded="true" signature="11088:11235" ph="..." />
-                <marker date="1558732618799" expanded="true" signature="11266:11409" ph="..." />
-                <marker date="1558732618799" expanded="true" signature="11375:11409" ph="..." />
+                <marker date="1558789432843" expanded="true" signature="13175:13322" ph="..." />
+                <marker date="1558789432843" expanded="true" signature="13353:13606" ph="..." />
+                <marker date="1558789432843" expanded="true" signature="13572:13606" ph="..." />
               </folding>
             </state>
           </provider>
@@ -126,8 +126,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://C:/Program Files/Python37/Lib/tkinter/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="2139" selection-start-line="2139" selection-end-line="2139" />
+            <state relative-caret-position="457">
+              <caret line="1735" selection-start-line="1735" selection-end-line="1735" />
             </state>
           </provider>
         </entry>
@@ -184,9 +184,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-10" />
-    <option name="width" value="1535" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="36" />
+    <option name="width" value="1734" />
     <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -195,7 +195,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -212,6 +211,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -367,14 +367,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1228" height="832" extended-state="0" />
+    <frame x="29" y="0" width="1387" height="832" extended-state="1" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14357683" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12666667" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32907802" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.22317597" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.22317597" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39858156" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -407,17 +408,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Program Files/Python37/Lib/json/decoder.py">
+    <entry file="file://$PROJECT_DIR$/movie_info.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6346">
-          <caret line="336" selection-start-line="336" selection-end-line="336" />
+        <state relative-caret-position="95">
+          <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+            <marker date="1558541620560" expanded="true" signature="3823:3824" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Program Files/Python37/Lib/json/__init__.py">
+    <entry file="file://$PROJECT_DIR$/theater_info.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6555">
-          <caret line="347" selection-start-line="347" selection-end-line="347" />
+        <state relative-caret-position="2147">
+          <caret line="117" column="28" selection-start-line="117" selection-start-column="28" selection-end-line="117" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+            <marker date="1558731581829" expanded="true" signature="5109:5289" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/box_office.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" selection-start-line="2" selection-end-line="3" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Python37/Lib/urllib/parse.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14972">
+          <caret line="790" selection-start-line="790" selection-end-line="790" />
         </state>
       </provider>
     </entry>
@@ -435,58 +458,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/box_office.py">
+    <entry file="file://C:/Program Files/Python37/Lib/json/decoder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" selection-start-line="2" selection-end-line="3" selection-end-column="9" />
+        <state relative-caret-position="6346">
+          <caret line="336" selection-start-line="336" selection-end-line="336" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/movie_info.py">
+    <entry file="file://C:/Program Files/Python37/Lib/json/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1627">
-          <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-            <marker date="1558541620560" expanded="true" signature="3823:3824" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Program Files/Python37/Lib/urllib/parse.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="790" selection-start-line="790" selection-end-line="790" />
+        <state relative-caret-position="6555">
+          <caret line="347" selection-start-line="347" selection-end-line="347" />
         </state>
       </provider>
     </entry>
     <entry file="file://C:/Program Files/Python37/Lib/tkinter/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="2139" selection-start-line="2139" selection-end-line="2139" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/theater_info.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="117" column="28" lean-forward="true" selection-start-line="117" selection-start-column="28" selection-end-line="117" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-            <marker date="1558731581829" expanded="true" signature="5109:5289" ph="..." />
-          </folding>
+        <state relative-caret-position="457">
+          <caret line="1735" selection-start-line="1735" selection-end-line="1735" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="171" column="63" selection-start-line="171" selection-start-column="63" selection-end-line="171" selection-end-column="63" />
+        <state relative-caret-position="191">
+          <caret line="200" column="72" lean-forward="true" selection-start-line="200" selection-start-column="72" selection-end-line="200" selection-end-column="72" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
-            <marker date="1558732618799" expanded="true" signature="11088:11235" ph="..." />
-            <marker date="1558732618799" expanded="true" signature="11266:11409" ph="..." />
-            <marker date="1558732618799" expanded="true" signature="11375:11409" ph="..." />
+            <marker date="1558789432843" expanded="true" signature="13175:13322" ph="..." />
+            <marker date="1558789432843" expanded="true" signature="13353:13606" ph="..." />
+            <marker date="1558789432843" expanded="true" signature="13572:13606" ph="..." />
           </folding>
         </state>
       </provider>
