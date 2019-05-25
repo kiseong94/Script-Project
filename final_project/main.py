@@ -35,7 +35,8 @@ class MovieQuitous:
         self.MovieDetailInfo = None
         self.TheaterList = None
         self.TheaterInfo = None
-        self.scrollbar =None
+        self.canvas = None
+        self.scrollbar = None
         self.LocationComboBox =None
         self.LoadImage()
         self.frame1_page = 0
@@ -49,9 +50,12 @@ class MovieQuitous:
         tk.Button(menu,relief='flat',bg='red', image = self.MenuButtonImages[1],command = lambda : self.ChangeFrame(2)).place(x=960, y=60)
         tk.Button(menu,relief='flat',bg='red', image = self.MenuButtonImages[2],command = lambda : self.ChangeFrame(3)).place(x=1170, y=60)
 
-        self.SubFrame =None
+        self.subframe =None
         self.ChangeFrame(2)
-        self.SubFrame.pack()
+        self.subframe.pack()
+
+
+
 
         tk.mainloop()
 
@@ -86,18 +90,15 @@ class MovieQuitous:
         return frame
 
     def GetFrame2(self):
-        font = tk.font.Font(family="맑은 고딕", size=10)
 
         frame = tk.Frame(self.window,width=1400, height=680, bg='white')
-        tk.Label(frame,text=" 영화 제목 ",font=font).place(x=20,y=3)
+        tk.Label(frame,text="영화 제목 →",font=('맑은 고딕', 13, 'bold'),bd=1, width=12,relief='raised', bg='mintcream').place(x=3,y=-3)
         self.MovieSearchEntry = tk.Entry(frame,relief='solid',width=50,bg='gray90')
-        self.MovieSearchEntry.place(x=175,y=3)
-        tk.Button(frame,relief='flat',image = self.SearchButtonImage ,command = self.Frame2_SearchMovie).place(x=580, y=-3)
+        self.MovieSearchEntry.place(x=170,y=3)
+        tk.Button(frame,relief='flat',image = self.SearchButtonImage ,command = self.Frame2_SearchMovie).place(x=575, y=-3)
 
         SubFrame = tk.Frame(frame,width=1406,height=656,bg='wheat1',highlightbackground="wheat4", highlightthickness=3)
         SubFrame.place(y=30,x=-3)
-
-
 
         x, y = 50, 100
         idx = 0
@@ -151,6 +152,7 @@ class MovieQuitous:
 
     def GetFrame3(self):
         frame = tk.Frame(self.window,width=1400, bg='grey70', height=680)
+        tk.Label(frame, text="지역", font=('맑은 고딕', 12, 'bold'), bd=1,width=7 ,bg='grey70',fg='white').place(x=3, y=-2)
         if self.LocationComboBox==None:
             self.LocationComboBox = tkinter.ttk.Combobox(frame,state="readonly", width=15, height=10, values=theater_info.location_table)
         else:
@@ -169,18 +171,15 @@ class MovieQuitous:
         tk.Label(TheaterListSubFrame,text='영 화 관',width=24,bd=3, relief='raised',
                         bg='lavender', fg='black',font=('HY견고딕', 10,'italic')).place(x=0,y=0)
         if self.TheaterList != None:
-# ==================== 영화관 리스트 프레임 스크롤링 ================
-            frame = tk.Frame(TheaterListSubFrame, width=270, height=626)
-            frame.place(x=0,y=26)
-            self.scrollbar = tk.Scrollbar(frame, orient="vertical")
-            self.canvas = tk.Canvas(frame, width=250, height=626, highlightthickness=0,
+            f = tk.Frame(TheaterListSubFrame, width=270, height=626)
+            f.place(x=0,y=26)
+            self.scrollbar = tk.Scrollbar(f, orient="vertical")
+            self.canvas = tk.Canvas(f, width=250, height=626, highlightthickness=0,
                                     yscrollcommand=self.scrollbar.set)
 
             self.scrollbar.config(command=self.canvas.yview)
             self.scrollbar.pack(side="right", fill="y")
             self.canvas.pack(fill="both", expand=True)
-
-            self.canvas.yview_moveto(0)
 
             self.DetailFrame = tk.Frame(self.canvas, width=250, height=626)
             self.canvas.create_window(0, 0, window=self.DetailFrame, anchor='nw')
@@ -196,31 +195,33 @@ class MovieQuitous:
 
         if self.TheaterInfo != None:
             tk.Label(TheaterInfoFrame, text=self.TheaterInfo['name'], font=('맑은 고딕', 18, 'bold')).place(x=10, y=10)
-            TheaterInfoSubFrame = tk.Frame(TheaterInfoFrame)
-#==================== 상영시간 프레임 스크롤링 ================
-            frame = tk.Frame(TheaterListSubFrame, width=270, height=626)
-            frame.place(x=0, y=26)
-            self.scrollbar2 = tk.Scrollbar(frame, orient="vertical")
-            self.canvas2 = tk.Canvas(frame, width=250, height=626, highlightthickness=0,
+#===================================== 상영 정보 스크롤링 ==========================
+
+            TheaterInfoSubFrame = tk.Frame(TheaterInfoFrame, width=550, height=460)
+            TheaterInfoSubFrame.place(x=0, y=26)
+            self.scrollbar2 = tk.Scrollbar(TheaterInfoSubFrame, orient="vertical")
+            self.canvas2 = tk.Canvas(TheaterInfoSubFrame, width=550, height=460, highlightthickness=0,
                                     yscrollcommand=self.scrollbar2.set)
 
-            self.scrollbar2.config(command=self.canvas.yview)
+            self.scrollbar2.config(command=self.canvas2.yview)
             self.scrollbar2.pack(side="right", fill="y")
             self.canvas2.pack(fill="both", expand=True)
 
             self.canvas2.yview_moveto(0)
 
-            self.DetailFrame2 = tk.Frame(self.canvas, width=250, height=626)
-            self.canvas.create_window(0, 0, window=self.DetailFrame2, anchor='nw')
+            self.DetailFrame2 = tk.Frame(self.canvas2, width=550, height=460)
+            self.canvas2.create_window(0, 0, window=self.DetailFrame2, anchor='nw')
 
             self.DetailFrame2.bind('<Configure>', self.FrameConfigure2)
 
+            idx = 0
             for info in self.TheaterInfo['info']:
-                tk.Label(TheaterInfoSubFrame,text=info['movie'],font=('맑은 고딕', 10, 'bold')).pack(anchor='w')
-                TimeFrame = tk.Frame(TheaterInfoSubFrame)
+                tk.Label(self.DetailFrame2,text=info['movie'],font=('맑은 고딕', 10, 'bold')).grid(row=idx,sticky='w')
+                idx+=1
+                TimeFrame = tk.Frame(self.DetailFrame2)
                 row,column = 0,0
                 for time in info['time']:
-                    if column == 8:
+                    if column == 10:
                         tk.Label(TimeFrame, text=time,relief = 'groove').grid(row=row,column=column)
                         row += 1
                         column = 0
@@ -228,9 +229,10 @@ class MovieQuitous:
                         tk.Label(TimeFrame, text=time, relief='groove').grid(row=row,column=column)
                         column += 1
 
+                TimeFrame.grid(row=idx,sticky='w')
+                idx += 1
 
-                TimeFrame.pack(anchor='w')
-            TheaterInfoSubFrame.place(x=50, y=60)
+            TheaterInfoSubFrame.place(x=50, y=100)
 
         TheaterInfoFrame.place(x=300,y=-3)
         TheaterListSubFrame.place(x=0,y=0)
@@ -240,15 +242,15 @@ class MovieQuitous:
         return frame
 
     def ChangeFrame(self,frame_num):
-        if self.SubFrame:
-            self.SubFrame.destroy()
+        if self.subframe:
+            self.subframe.destroy()
         if frame_num == 1:
-            self.SubFrame = self.GetFrame1()
+            self.subframe = self.GetFrame1()
         elif frame_num == 2:
-            self.SubFrame = self.GetFrame2()
+            self.subframe = self.GetFrame2()
         elif frame_num == 3:
-            self.SubFrame = self.GetFrame3()
-        self.SubFrame.pack()
+            self.subframe = self.GetFrame3()
+        self.subframe.pack()
 
     def Frame1_ChangePage(self, dir):
         if dir == 0:
@@ -294,6 +296,7 @@ class MovieQuitous:
 
     def Frame3_GetTheaterList(self):
         if self.LocationComboBox.get() != "":
+
             self.TheaterInfo = None
             self.TheaterList = theater_info.getTheaterInfo(self.LocationComboBox.get(),self.SubLocationComboBox.get())
             self.ChangeFrame(3)
@@ -316,5 +319,16 @@ class MovieQuitous:
         self.bg = tk.PhotoImage(file="image/bg0.gif")
         self.MenuButtonImages = [tk.PhotoImage(file="image/button1.png"),tk.PhotoImage(file="image/button2.png"),tk.PhotoImage(file="image/button3.png")]
         self.SearchButtonImage = tk.PhotoImage(file="image/search_button.png")
+
+
+
+
+# search_result = movie_info.SearchMovie("반지")
+#
+# if search_result == None:
+#     print("검색 결과가 없습니다")
+# else:
+#     total_page = 10/search_result[0]
+#     movie_info.GetSearchResult(search_result[1],0)
 
 movie = MovieQuitous()
