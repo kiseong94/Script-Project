@@ -52,7 +52,7 @@ class MovieQuitous:
         tk.Button(menu,relief='flat',bg='red', image = self.MenuButtonImages[2],command = lambda : self.ChangeFrame(3)).place(x=1170, y=60)
 
         self.subframe =None
-        self.ChangeFrame(2)
+        self.ChangeFrame(1)
         self.subframe.pack()
 
 
