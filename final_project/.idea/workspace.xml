@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e3eafed-50f6-4141-bc7a-bc47bda5c3f3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/googleMap.py" beforeDir="false" afterPath="$PROJECT_DIR$/googleMap.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image/map_frame.png" beforeDir="false" afterPath="$PROJECT_DIR$/image/map_frame.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,25 +30,25 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="23" />
-          <entry key="py" value="16577" />
+          <entry key="py" value="17549" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="23" />
-          <entry key="Python" value="16577" />
+          <entry key="Python" value="17549" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="json" value="5" />
-          <entry key="png" value="2" />
+          <entry key="png" value="3" />
           <entry key="py" value="22" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Image" value="2" />
+          <entry key="Image" value="3" />
           <entry key="JSON" value="5" />
           <entry key="Python" value="22" />
         </counts>
@@ -57,20 +57,27 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="245" column="89" selection-start-line="245" selection-start-column="89" selection-end-line="245" selection-end-column="89" />
+            <state relative-caret-position="300">
+              <caret line="210" column="50" selection-start-line="210" selection-start-column="50" selection-end-line="210" selection-end-column="50" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
-                <marker date="1560522753534" expanded="true" signature="14182:14592" ph="..." />
-                <marker date="1560522753534" expanded="true" signature="14623:15219" ph="..." />
-                <marker date="1560522753534" expanded="true" signature="14842:15219" ph="..." />
-                <marker date="1560522753534" expanded="true" signature="15034:15219" ph="..." />
+                <marker date="1560527631730" expanded="true" signature="16550:16631" ph="..." />
+                <marker date="1560527631730" expanded="true" signature="16671:16748" ph="..." />
+                <marker date="1560527631730" expanded="true" signature="16781:17191" ph="..." />
+                <marker date="1560527631730" expanded="true" signature="17222:18159" ph="..." />
+                <marker date="1560527631730" expanded="true" signature="17441:18159" ph="..." />
+                <marker date="1560527631730" expanded="true" signature="18049:18159" ph="..." />
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/image/button1.png">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -94,7 +101,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/theater_info.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="155">
@@ -115,15 +122,6 @@
                 <marker date="1560522374677" expanded="true" signature="2139:2313" ph="..." />
                 <marker date="1560522374677" expanded="true" signature="2388:2463" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://C:/Program Files/Python37/Lib/tkinter/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66386">
-              <caret line="3497" selection-start-line="3497" selection-end-line="3497" />
             </state>
           </provider>
         </entry>
@@ -192,8 +190,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="392" />
-    <option name="y" value="10" />
+    <option name="x" value="425" />
+    <option name="y" value="40" />
     <option name="width" value="1469" />
     <option name="height" value="993" />
   </component>
@@ -375,7 +373,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="314" y="8" width="1175" height="794" extended-state="0" />
+    <frame x="340" y="32" width="1175" height="794" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15026362" />
@@ -489,20 +487,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/theater_info.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="78" column="68" selection-start-line="78" selection-start-column="59" selection-end-line="78" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/movie_info.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-589">
-          <caret line="5" selection-start-line="5" selection-end-line="5" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/googleMap.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="331">
@@ -519,15 +503,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="245" column="89" selection-start-line="245" selection-start-column="89" selection-end-line="245" selection-end-column="89" />
+        <state relative-caret-position="300">
+          <caret line="210" column="50" selection-start-line="210" selection-start-column="50" selection-end-line="210" selection-end-column="50" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
-            <marker date="1560522753534" expanded="true" signature="14182:14592" ph="..." />
-            <marker date="1560522753534" expanded="true" signature="14623:15219" ph="..." />
-            <marker date="1560522753534" expanded="true" signature="14842:15219" ph="..." />
-            <marker date="1560522753534" expanded="true" signature="15034:15219" ph="..." />
+            <marker date="1560527631730" expanded="true" signature="16550:16631" ph="..." />
+            <marker date="1560527631730" expanded="true" signature="16671:16748" ph="..." />
+            <marker date="1560527631730" expanded="true" signature="16781:17191" ph="..." />
+            <marker date="1560527631730" expanded="true" signature="17222:18159" ph="..." />
+            <marker date="1560527631730" expanded="true" signature="17441:18159" ph="..." />
+            <marker date="1560527631730" expanded="true" signature="18049:18159" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/image/button1.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/movie_info.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-589">
+          <caret line="5" selection-start-line="5" selection-end-line="5" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/theater_info.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="78" column="68" selection-start-line="78" selection-start-column="59" selection-end-line="78" selection-end-column="68" />
         </state>
       </provider>
     </entry>

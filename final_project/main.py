@@ -44,7 +44,9 @@ class MovieQuitous:
         self.frame2_page = 0
         self.IsMovieSearched = False
         self.ShowDetail = False
+        self.IsBookMarkActivated = False
         self.Map= None
+        self.BookMark = dict()
 
         self.googleMap = googleMap.GoogleMap()
 
@@ -171,13 +173,20 @@ class MovieQuitous:
         self.SubLocationComboBox = tkinter.ttk.Combobox(frame, state="readonly", width=25, height=10, values=theater_info.sub_location_table[self.LocationComboBox.get()])
         self.SubLocationComboBox.place(x=395, y=2)
         tk.Button(frame, relief='flat', bg='LightBlue1', image=self.SearchButtonImage[1],command = self.Frame3_GetTheaterList).place(x=623, y=-3)
+        tk.Button(frame, relief='flat', bg='LightBlue1', text="즐겨찾기",command=self.Frame3_GetBookMark).place(x=683, y=-3)
 
         SubFrame = tk.Frame(frame,width=1406,height=656,bg='snow3',highlightbackground="grey50", highlightthickness=3)
         TheaterListFrame = tk.Frame(SubFrame,width=275,height=656,highlightbackground="grey50", highlightthickness=3)
 
         TheaterListSubFrame = tk.Frame(TheaterListFrame, width=300, height=656)
-        tk.Label(TheaterListSubFrame,text='영 화 관',width=24,bd=3, relief='raised',
-                        bg='lavender', fg='black',font=('HY견고딕', 10,'italic')).place(x=0,y=0)
+
+        if self.IsBookMarkActivated:
+            tk.Label(TheaterListSubFrame, text='즐겨찾기', width=24, bd=3, relief='raised',
+                     bg='yellow', fg='black', font=('HY견고딕', 10, 'italic')).place(x=0, y=0)
+        else:
+            tk.Label(TheaterListSubFrame,text='영 화 관',width=24,bd=3, relief='raised',
+                    bg='lavender', fg='black',font=('HY견고딕', 10,'italic')).place(x=0, y=0)
+
         if self.TheaterList != None:
             f = tk.Frame(TheaterListSubFrame, width=270, height=626)
             f.place(x=0,y=26)
@@ -193,16 +202,31 @@ class MovieQuitous:
             self.canvas.create_window(0, 0, window=self.DetailFrame, anchor='nw')
 
             self.DetailFrame.bind('<Configure>', self.FrameConfigure)
+
             idx=0
+
             for theater in self.TheaterList:
-                tk.Button( self.DetailFrame,width=23,text=theater["name"],cursor='hand2',bd=6, relief='raised',
+                if self.IsBookMarkActivated:
+                    tk.Button(self.DetailFrame, width=23, text=theater["name"], cursor='hand2', bd=6, relief='raised',
+                              bg='gold', fg='black', font=('helvetica', 10, 'italic'),
+                              command=partial(self.GetTheaterInfo, theater)).grid(row=idx, column=0)
+                else:
+                    tk.Button( self.DetailFrame,width=23,text=theater["name"],cursor='hand2',bd=6, relief='raised',
                           bg='black', fg='white',font=('helvetica', 10, 'italic'),command = partial(self.GetTheaterInfo,theater)).grid(row=idx,column=0)
                 idx+=1
 
         TheaterInfoFrame = tk.Frame(SubFrame,width=1200,height=656,highlightbackground="grey50", highlightthickness=3)
 
         if self.TheaterInfo != None:
-            tk.Label(TheaterInfoFrame, text=self.TheaterInfo['name'], font=('맑은 고딕', 18, 'bold')).place(x=10, y=10)
+            tk.Label(TheaterInfoFrame, text=self.TheaterInfo['name'], font=('맑은 고딕', 18, 'bold')).place(x=50, y=10)
+
+            if self.TheaterInfo['name'] in self.BookMark.keys():
+                tk.Button(TheaterInfoFrame, text='즐찾해제',
+                          command=lambda: self.Frame3_DeleteBookMark(self.TheaterInfo)).place(x=10, y=10)
+            else:
+                tk.Button(TheaterInfoFrame, text='즐겨찾기',
+                          command=lambda: self.Frame3_AddBookMark(self.TheaterInfo)).place(x=10, y=10)
+
 #===================================== 상영 정보 스크롤링 ===================================
 
             TheaterInfoSubFrame = tk.Frame(TheaterInfoFrame, width=550, height=460)
@@ -230,7 +254,7 @@ class MovieQuitous:
                 row,column = 0,0
                 for time in info['time']:
                     if column == 10:
-                        tk.Label(TimeFrame, text=time,relief = 'groove').grid(row=row,column=column)
+                        tk.Label(TimeFrame, text=time,relief='groove').grid(row=row,column=column)
                         row += 1
                         column = 0
                     else:
@@ -242,8 +266,23 @@ class MovieQuitous:
 
             TheaterInfoSubFrame.place(x=50, y=100)
 
+            tk.Button(TheaterInfoFrame, width=6, text="로드맵", cursor='hand2', bd=1,
+                      bg='tan', fg='black', font=('HY견고딕', 10),
+                      command=lambda : self.change_map('roadmap')).place(x=630,y=90)
+
+            tk.Button(TheaterInfoFrame, width=6, text="위성사진", cursor='hand2', bd=1,
+                      bg='tan', fg='black', font=('HY견고딕', 10),
+                      command=lambda: self.change_map('satellite')).place(x=710, y=90)
+
+            tk.Button(TheaterInfoFrame, width=2, text="+", cursor='hand2', bd=1,
+                      bg='tan', fg='black', font=('HY견고딕', 10),
+                      command=lambda: self.zoom_button(1)).place(x=1010, y=560)
+            tk.Button(TheaterInfoFrame, width=2, text="-", cursor='hand2', bd=1,
+                      bg='tan', fg='black', font=('HY견고딕', 10),
+                      command=lambda: self.zoom_button(0)).place(x=1040, y=560)
+
             MapFrame = tk.Frame(TheaterInfoFrame,width=440,bg='white',height=440)
-            tk.Label(MapFrame,width=440,image = self.TitleImage ,height=440).place(x=0,y=0)
+            tk.Label(MapFrame,width=440,image = self.MapFrameImage,height=440).place(x=0,y=0)
             img = self.googleMap.GetMapImage()
             self.Map = tk.Label(MapFrame,image=img,width=400, height=400)
             self.Map.place(x=20,y=20)
@@ -317,10 +356,24 @@ class MovieQuitous:
 
     def Frame3_GetTheaterList(self):
         if self.LocationComboBox.get() != "":
-
             self.TheaterInfo = None
             self.TheaterList = theater_info.getTheaterInfo(self.LocationComboBox.get(),self.SubLocationComboBox.get())
+            self.IsBookMarkActivated = False
             self.ChangeFrame(3)
+
+    def Frame3_GetBookMark(self):
+        self.TheaterInfo = None
+        self.TheaterList = self.BookMark.values()
+        self.IsBookMarkActivated = True
+        self.ChangeFrame(3)
+
+    def Frame3_AddBookMark(self,theater):
+        self.BookMark[theater['name']]=theater
+        self.ChangeFrame(3)
+
+    def Frame3_DeleteBookMark(self,theater):
+        self.BookMark.pop(theater['name'])
+        self.ChangeFrame(3)
 
     def GetTheaterInfo(self,theater):
         self.TheaterInfo = theater_info.GetMovieInfo(theater)
@@ -351,6 +404,17 @@ class MovieQuitous:
             self.googleMap.ZoomOut()
         self.Map.configure(image=self.googleMap.GetMapImage())
 
+    def zoom_button(self, flag):
+        if flag == 1:
+            self.googleMap.ZoomIn()
+        else:
+            self.googleMap.ZoomOut()
+        self.Map.configure(image=self.googleMap.GetMapImage())
+
+    def change_map(self,type):
+        self.googleMap.ChangeType(type)
+        self.Map.configure(image=self.googleMap.GetMapImage())
+
 
     def LoadImage(self):
         self.bg = tk.PhotoImage(file="image/bg0.gif")
@@ -359,7 +423,7 @@ class MovieQuitous:
         self.SearchButtonImage = [tk.PhotoImage(file="image/search_button.png"),tk.PhotoImage(file="image/search_button2.png")]
         self.Frame2LabelImage = [tk.PhotoImage(file="image/f2_label1.png")]
         self.Frame3LabelImage = [tk.PhotoImage(file="image/f3_label1.png"),tk.PhotoImage(file="image/f3_label2.png")]
-
+        self.MapFrameImage = tk.PhotoImage(file="image/map_frame.png")
 
 
 
