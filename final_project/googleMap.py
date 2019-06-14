@@ -4,7 +4,7 @@ import io
 
 ZOOM_LEVEL_1,ZOOM_LEVEL_2,ZOOM_LEVEL_3,ZOOM_LEVEL_4,ZOOM_LEVEL_5 = range(5)
 
-SCALE_RATIO = [(5750,7625),(11500,15250),(23000,30500),(46000,6100),(46000,61000)]
+SCALE_RATIO = [(5750,7625),(11500,15250),(23000,30500),(46000,6100),(92000,122000)]
 
 
 def GetImageFromURL(url):
@@ -24,16 +24,19 @@ class GoogleMap:
         self.Size = "400x400"
         self.coordX,self.coordY = 0,0
         self.image = None
+        self.TargetLatitude,self.TargetLongitude =None, None
 
     def UpdateMapImage(self):
         global Latitude,Longitude,MapType,Zoom,size
 
         key = 'AIzaSyAUb4eSn53l2uZd9QqpZjvB37ClazLfRgY'
-        baseURL = 'https://maps.googleapis.com/maps/api/staticmap?center=LATITUDE,LONGITUDE&zoom=ZOOM&size=SIZE&maptype=MAP_TYPE&key='
+        baseURL = 'https://maps.googleapis.com/maps/api/staticmap?center=LATITUDE,LONGITUDE&markers=color:blue%7CMARKLAT,MARKLON&zoom=ZOOM&size=SIZE&maptype=MAP_TYPE&key='
         URL = baseURL + key
 
         URL = URL.replace("LATITUDE", self.Latitude)
         URL = URL.replace("LONGITUDE", self.Longitude)
+        URL = URL.replace("MARKLAT", self.TargetLatitude)
+        URL = URL.replace("MARKLON", self.TargetLongitude)
         URL = URL.replace("MAP_TYPE", self.MapType)
         URL = URL.replace("ZOOM", str(self.Zoom+13))
         URL = URL.replace("SIZE", self.Size)
@@ -42,11 +45,16 @@ class GoogleMap:
     def StartMap(self,Latitude,Longitude,MapType='roadmap',Zoom=ZOOM_LEVEL_3):
         self.Latitude = Latitude
         self.Longitude = Longitude
+        self.TargetLatitude = Latitude
+        self.TargetLongitude = Longitude
         self.MapType = MapType
         self.Zoom = Zoom
         self.UpdateMapImage()
 
-    def click(self, event):
+    def down(self, event):
+        self.coordX,self.coordY = event.x, event.y
+
+    def up(self, event):
         self.coordX,self.coordY = event.x, event.y
 
     def drag(self, x,y):
@@ -64,6 +72,12 @@ class GoogleMap:
 
     def ZoomIn(self):
         self.Zoom = min(self.Zoom+1,4)
+        self.UpdateMapImage()
 
     def ZoomOut(self):
         self.Zoom = max(self.Zoom-1, 0)
+        self.UpdateMapImage()
+
+    def ChangeType(self,type):
+        self.MapType = type
+        self.UpdateMapImage()

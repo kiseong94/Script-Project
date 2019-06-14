@@ -242,12 +242,18 @@ class MovieQuitous:
 
             TheaterInfoSubFrame.place(x=50, y=100)
 
+            MapFrame = tk.Frame(TheaterInfoFrame,width=440,bg='white',height=440)
+            tk.Label(MapFrame,width=440,image = self.TitleImage ,height=440).place(x=0,y=0)
             img = self.googleMap.GetMapImage()
-            self.Map = tk.Label(TheaterInfoFrame,image=img,width=400, height=400)
-            self.Map.place(x=650,y=150)
+            self.Map = tk.Label(MapFrame,image=img,width=400, height=400)
+            self.Map.place(x=20,y=20)
 
             self.Map.bind('<B1-Motion>', self.drag)
-            self.Map.bind('<Button-1>', self.googleMap.click)
+            self.Map.bind('<MouseWheel>', self.zoom)
+            self.Map.bind('<Button-1>', self.googleMap.down)
+            self.Map.bind('<ButtonRelease-1>', self.googleMap.up)
+
+            MapFrame.place(x=630,y=120)
 
         TheaterInfoFrame.place(x=300,y=-3)
         TheaterListSubFrame.place(x=0,y=0)
@@ -339,8 +345,12 @@ class MovieQuitous:
         self.Map.configure(image=self.googleMap.GetMapImage())
 
     def zoom(self, event):
-        self.googleMap.drag(event.x,event.y)
+        if event.delta > 0:
+            self.googleMap.ZoomIn()
+        else:
+            self.googleMap.ZoomOut()
         self.Map.configure(image=self.googleMap.GetMapImage())
+
 
     def LoadImage(self):
         self.bg = tk.PhotoImage(file="image/bg0.gif")
