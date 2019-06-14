@@ -7,6 +7,7 @@ import tkinter as tk
 import tkinter.ttk
 import tkinter.font
 import urllib.request
+import json
 import io
 from PIL import Image,ImageTk
 import base64
@@ -46,7 +47,9 @@ class MovieQuitous:
         self.ShowDetail = False
         self.IsBookMarkActivated = False
         self.Map= None
-        self.BookMark = dict()
+        self.BookMark = None
+
+        self.LoadBookMark()
 
         self.googleMap = googleMap.GoogleMap()
 
@@ -173,7 +176,7 @@ class MovieQuitous:
         self.SubLocationComboBox = tkinter.ttk.Combobox(frame, state="readonly", width=25, height=10, values=theater_info.sub_location_table[self.LocationComboBox.get()])
         self.SubLocationComboBox.place(x=395, y=2)
         tk.Button(frame, relief='flat', bg='LightBlue1', image=self.SearchButtonImage[1],command = self.Frame3_GetTheaterList).place(x=623, y=-3)
-        tk.Button(frame, relief='flat', bg='LightBlue1', text="즐겨찾기",command=self.Frame3_GetBookMark).place(x=683, y=-3)
+        tk.Button(frame, relief='flat', bg='LightBlue1', image=self.SearchButtonImage[2],command=self.Frame3_GetBookMark).place(x=703, y=-3)
 
         SubFrame = tk.Frame(frame,width=1406,height=656,bg='snow3',highlightbackground="grey50", highlightthickness=3)
         TheaterListFrame = tk.Frame(SubFrame,width=275,height=656,highlightbackground="grey50", highlightthickness=3)
@@ -218,14 +221,14 @@ class MovieQuitous:
         TheaterInfoFrame = tk.Frame(SubFrame,width=1200,height=656,highlightbackground="grey50", highlightthickness=3)
 
         if self.TheaterInfo != None:
-            tk.Label(TheaterInfoFrame, text=self.TheaterInfo['name'], font=('맑은 고딕', 18, 'bold')).place(x=50, y=10)
+            tk.Label(TheaterInfoFrame, text=self.TheaterInfo['name'], font=('맑은 고딕', 20, 'bold')).place(x=100, y=20)
 
             if self.TheaterInfo['name'] in self.BookMark.keys():
-                tk.Button(TheaterInfoFrame, text='즐찾해제',
-                          command=lambda: self.Frame3_DeleteBookMark(self.TheaterInfo)).place(x=10, y=10)
+                tk.Button(TheaterInfoFrame, image=self.BookMarkImage[1],relief='flat',
+                          command=lambda: self.Frame3_DeleteBookMark(self.TheaterInfo)).place(x=15, y=10)
             else:
-                tk.Button(TheaterInfoFrame, text='즐겨찾기',
-                          command=lambda: self.Frame3_AddBookMark(self.TheaterInfo)).place(x=10, y=10)
+                tk.Button(TheaterInfoFrame, image=self.BookMarkImage[0],relief='flat',
+                          command=lambda: self.Frame3_AddBookMark(self.TheaterInfo)).place(x=15, y=10)
 
 #===================================== 상영 정보 스크롤링 ===================================
 
@@ -290,7 +293,6 @@ class MovieQuitous:
             self.Map.bind('<B1-Motion>', self.drag)
             self.Map.bind('<MouseWheel>', self.zoom)
             self.Map.bind('<Button-1>', self.googleMap.down)
-            self.Map.bind('<ButtonRelease-1>', self.googleMap.up)
 
             MapFrame.place(x=630,y=120)
 
@@ -369,10 +371,12 @@ class MovieQuitous:
 
     def Frame3_AddBookMark(self,theater):
         self.BookMark[theater['name']]=theater
+        self.SaveBookMark()
         self.ChangeFrame(3)
 
     def Frame3_DeleteBookMark(self,theater):
         self.BookMark.pop(theater['name'])
+        self.SaveBookMark()
         self.ChangeFrame(3)
 
     def GetTheaterInfo(self,theater):
@@ -420,11 +424,22 @@ class MovieQuitous:
         self.bg = tk.PhotoImage(file="image/bg0.gif")
         self.TitleImage = tk.PhotoImage(file="image/title.png")
         self.MenuButtonImages = [tk.PhotoImage(file="image/button1.png"),tk.PhotoImage(file="image/button2.png"),tk.PhotoImage(file="image/button3.png")]
-        self.SearchButtonImage = [tk.PhotoImage(file="image/search_button.png"),tk.PhotoImage(file="image/search_button2.png")]
+        self.SearchButtonImage = [tk.PhotoImage(file="image/search_button.png"),tk.PhotoImage(file="image/search_button2.png"),tk.PhotoImage(file="image/bookmark.png")]
         self.Frame2LabelImage = [tk.PhotoImage(file="image/f2_label1.png")]
         self.Frame3LabelImage = [tk.PhotoImage(file="image/f3_label1.png"),tk.PhotoImage(file="image/f3_label2.png")]
         self.MapFrameImage = tk.PhotoImage(file="image/map_frame.png")
+        self.BookMarkImage = [tk.PhotoImage(file="image/UnMarked.png"),tk.PhotoImage(file="image/Marked.png")]
 
+    def SendMail(self):
+        self.BookMark.values()
+
+    def SaveBookMark(self):
+        with open('Data.json', 'w', encoding="utf-8") as make_file:
+            json.dump(self.BookMark, make_file)
+
+    def LoadBookMark(self):
+        with open('Data.json') as file:
+            self.BookMark = json.load(file)
 
 
 # search_result = movie_info.SearchMovie("반지")

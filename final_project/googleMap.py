@@ -54,9 +54,6 @@ class GoogleMap:
     def down(self, event):
         self.coordX,self.coordY = event.x, event.y
 
-    def up(self, event):
-        self.coordX,self.coordY = event.x, event.y
-
     def drag(self, x,y):
         self.move(self.coordX - x, self.coordY - y)
         self.coordX,self.coordY = x, y
