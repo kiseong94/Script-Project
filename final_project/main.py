@@ -2,6 +2,7 @@ import movie_info
 import box_office
 import theater_info
 import googleMap
+import gmail
 from functools import partial
 import tkinter as tk
 import tkinter.ttk
@@ -177,6 +178,7 @@ class MovieQuitous:
         self.SubLocationComboBox.place(x=395, y=2)
         tk.Button(frame, relief='flat', bg='LightBlue1', image=self.SearchButtonImage[1],command = self.Frame3_GetTheaterList).place(x=623, y=-3)
         tk.Button(frame, relief='flat', bg='LightBlue1', image=self.SearchButtonImage[2],command=self.Frame3_GetBookMark).place(x=703, y=-3)
+        tk.Button(frame, relief='flat', bg='LightBlue1', image=self.SearchButtonImage[3],command=self.Frame3_SendMail).place(x=813, y=-3)
 
         SubFrame = tk.Frame(frame,width=1406,height=656,bg='snow3',highlightbackground="grey50", highlightthickness=3)
         TheaterListFrame = tk.Frame(SubFrame,width=275,height=656,highlightbackground="grey50", highlightthickness=3)
@@ -424,14 +426,14 @@ class MovieQuitous:
         self.bg = tk.PhotoImage(file="image/bg0.gif")
         self.TitleImage = tk.PhotoImage(file="image/title.png")
         self.MenuButtonImages = [tk.PhotoImage(file="image/button1.png"),tk.PhotoImage(file="image/button2.png"),tk.PhotoImage(file="image/button3.png")]
-        self.SearchButtonImage = [tk.PhotoImage(file="image/search_button.png"),tk.PhotoImage(file="image/search_button2.png"),tk.PhotoImage(file="image/bookmark.png")]
+        self.SearchButtonImage = [tk.PhotoImage(file="image/search_button.png"),tk.PhotoImage(file="image/search_button2.png"),tk.PhotoImage(file="image/bookmark.png"),tk.PhotoImage(file="image/SendMail.png")]
         self.Frame2LabelImage = [tk.PhotoImage(file="image/f2_label1.png")]
         self.Frame3LabelImage = [tk.PhotoImage(file="image/f3_label1.png"),tk.PhotoImage(file="image/f3_label2.png")]
         self.MapFrameImage = tk.PhotoImage(file="image/map_frame.png")
         self.BookMarkImage = [tk.PhotoImage(file="image/UnMarked.png"),tk.PhotoImage(file="image/Marked.png")]
 
-    def SendMail(self):
-        self.BookMark.values()
+    def Frame3_SendMail(self):
+        gmail.sendGmail(list(self.BookMark.values()))
 
     def SaveBookMark(self):
         with open('Data.json', 'w', encoding="utf-8") as make_file:

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e3eafed-50f6-4141-bc7a-bc47bda5c3f3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/CGVtheaterCode.json" beforeDir="false" afterPath="$PROJECT_DIR$/CGVtheaterCode.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data.json" beforeDir="false" afterPath="$PROJECT_DIR$/Data.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,27 +30,27 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="23" />
-          <entry key="py" value="17759" />
+          <entry key="py" value="17790" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="23" />
-          <entry key="Python" value="17759" />
+          <entry key="Python" value="17790" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="json" value="6" />
-          <entry key="png" value="3" />
-          <entry key="py" value="22" />
+          <entry key="png" value="4" />
+          <entry key="py" value="30" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Image" value="3" />
+          <entry key="Image" value="4" />
           <entry key="JSON" value="6" />
-          <entry key="Python" value="22" />
+          <entry key="Python" value="30" />
         </counts>
       </usages-collector>
     </session>
@@ -60,101 +60,98 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="82">
-              <caret line="434" column="8" lean-forward="true" selection-start-line="434" selection-start-column="8" selection-end-line="434" selection-end-column="8" />
+            <state relative-caret-position="329">
+              <caret line="434" column="9" selection-start-line="434" selection-start-column="9" selection-end-line="434" selection-end-column="9" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
-                <marker date="1560531162621" expanded="true" signature="16670:16779" ph="..." />
-                <marker date="1560531162621" expanded="true" signature="16819:16924" ph="..." />
-                <marker date="1560531162621" expanded="true" signature="16957:17367" ph="..." />
-                <marker date="1560531162621" expanded="true" signature="17398:18335" ph="..." />
-                <marker date="1560531162621" expanded="true" signature="17617:18335" ph="..." />
-                <marker date="1560531162621" expanded="true" signature="18225:18335" ph="..." />
-                <marker date="1560531162621" expanded="true" signature="19197:19234" ph="..." />
+                <marker date="1560536715119" expanded="true" signature="16755:16864" ph="..." />
+                <marker date="1560536715119" expanded="true" signature="16904:17009" ph="..." />
+                <marker date="1560536715119" expanded="true" signature="17042:17452" ph="..." />
+                <marker date="1560536715119" expanded="true" signature="17483:18420" ph="..." />
+                <marker date="1560536715119" expanded="true" signature="17702:18420" ph="..." />
+                <marker date="1560536715119" expanded="true" signature="18310:18420" ph="..." />
+                <marker date="1560536715119" expanded="true" signature="19330:19384" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/image/button1.png">
+        <entry file="file://$PROJECT_DIR$/gmail.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="44" column="68" lean-forward="true" selection-start-line="44" selection-start-column="68" selection-end-line="44" selection-end-column="68" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/image/title.png">
           <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/box_office.py">
+        <entry file="file://$PROJECT_DIR$/telegram.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="47" selection-start-line="47" selection-end-line="47" />
+            <state relative-caret-position="1653">
+              <caret line="99" lean-forward="true" selection-start-line="99" selection-end-line="99" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://C:/Program Files/Python37/Lib/site-packages/urllib3/util/retry.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="398" selection-start-line="398" selection-end-line="398" />
               <folding>
-                <element signature="e#0#21#0" expanded="true" />
+                <element signature="e#0#38#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/movie_info.py">
+        <entry file="file://C:/Program Files/Python37/Lib/site-packages/urllib3/connectionpool.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-589">
-              <caret line="5" selection-start-line="5" selection-end-line="5" selection-end-column="9" />
+            <state relative-caret-position="155">
+              <caret line="669" selection-start-line="669" selection-end-line="669" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/theater_info.py">
+        <entry file="file://C:/Program Files/Python37/Lib/site-packages/urllib3/poolmanager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="21" column="2" lean-forward="true" selection-start-line="21" selection-start-column="2" selection-end-line="22" selection-end-column="40" />
+            <state relative-caret-position="162">
+              <caret line="325" selection-start-line="325" selection-end-line="325" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Data.json">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/googleMap.py">
+        <entry file="file://C:/Program Files/Python37/Lib/site-packages/telepot/api.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1140">
-              <caret line="81" column="27" lean-forward="true" selection-start-line="81" selection-start-column="27" selection-end-line="81" selection-end-column="27" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-                <marker date="1560522374677" expanded="true" signature="437:729" ph="..." />
-                <marker date="1560522374677" expanded="true" signature="1566:1806" ph="..." />
-                <marker date="1560522374677" expanded="true" signature="2139:2313" ph="..." />
-                <marker date="1560522374677" expanded="true" signature="2388:2463" ph="..." />
-              </folding>
+            <state relative-caret-position="165">
+              <caret line="153" selection-start-line="153" selection-end-line="153" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CGVtheater.json">
+        <entry file="file://C:/Program Files/Python37/Lib/site-packages/telepot/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="33" selection-start-column="33" selection-end-column="33" />
+            <state relative-caret-position="162">
+              <caret line="502" selection-start-line="502" selection-end-line="502" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CGVtheaterCode.json">
+        <entry file="file://$PROJECT_DIR$/mysmtplib.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="1" selection-start-column="1" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://C:/Program Files/Python37/Lib/json/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6555">
-              <caret line="347" selection-start-line="347" selection-end-line="347" />
+            <state relative-caret-position="247">
+              <caret line="14" column="28" lean-forward="true" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -182,11 +179,12 @@
         <option value="$PROJECT_DIR$/theater_info.py" />
         <option value="$PROJECT_DIR$/box_office.py" />
         <option value="$PROJECT_DIR$/googleMap.py" />
+        <option value="$PROJECT_DIR$/gmail.py" />
         <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="267" />
     <option name="y" value="21" />
     <option name="width" value="1469" />
@@ -349,8 +347,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.main (1)" />
-        <item itemvalue="Python.box_office" />
         <item itemvalue="Python.telegram" />
+        <item itemvalue="Python.box_office" />
         <item itemvalue="Python.movie_info" />
         <item itemvalue="Python.theater_info" />
       </list>
@@ -370,15 +368,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="214" y="17" width="1175" height="794" extended-state="0" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15026362" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11302049" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32907802" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.290469" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.27234042" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.42662632" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -428,17 +426,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Program Files/Python37/Lib/site-packages/urllib3/util/retry.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://C:/Program Files/Python37/Lib/site-packages/urllib3/connectionpool.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10602">
-          <caret line="602" selection-start-line="602" selection-end-line="602" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/telegram.py" />
     <entry file="file://C:/Program Files/Python37/Lib/tkinter/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66386">
@@ -494,43 +481,105 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/googleMap.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1140">
-          <caret line="81" column="27" lean-forward="true" selection-start-line="81" selection-start-column="27" selection-end-line="81" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-            <marker date="1560522374677" expanded="true" signature="437:729" ph="..." />
-            <marker date="1560522374677" expanded="true" signature="1566:1806" ph="..." />
-            <marker date="1560522374677" expanded="true" signature="2139:2313" ph="..." />
-            <marker date="1560522374677" expanded="true" signature="2388:2463" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/theater_info.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
-          <caret line="21" column="2" lean-forward="true" selection-start-line="21" selection-start-column="2" selection-end-line="22" selection-end-column="40" />
+          <caret line="21" column="2" selection-start-line="21" selection-start-column="2" selection-end-line="22" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Data.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/googleMap.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="55" selection-start-line="55" selection-end-line="55" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+            <marker date="1560531340071" expanded="true" signature="437:729" ph="..." />
+            <marker date="1560531340071" expanded="true" signature="1566:1806" ph="..." />
+            <marker date="1560531340071" expanded="true" signature="2062:2236" ph="..." />
+            <marker date="1560531340071" expanded="true" signature="2311:2386" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysmtplib.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="14" column="28" lean-forward="true" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Python37/Lib/site-packages/urllib3/util/retry.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="398" selection-start-line="398" selection-end-line="398" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Python37/Lib/site-packages/urllib3/connectionpool.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="669" selection-start-line="669" selection-end-line="669" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Python37/Lib/site-packages/urllib3/poolmanager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="325" selection-start-line="325" selection-end-line="325" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Python37/Lib/site-packages/telepot/api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="153" selection-start-line="153" selection-end-line="153" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Python37/Lib/site-packages/telepot/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="502" selection-start-line="502" selection-end-line="502" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/telegram.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1653">
+          <caret line="99" lean-forward="true" selection-start-line="99" selection-end-line="99" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/image/title.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gmail.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="44" column="68" lean-forward="true" selection-start-line="44" selection-start-column="68" selection-end-line="44" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="82">
-          <caret line="434" column="8" lean-forward="true" selection-start-line="434" selection-start-column="8" selection-end-line="434" selection-end-column="8" />
+        <state relative-caret-position="329">
+          <caret line="434" column="9" selection-start-line="434" selection-start-column="9" selection-end-line="434" selection-end-column="9" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
-            <marker date="1560531162621" expanded="true" signature="16670:16779" ph="..." />
-            <marker date="1560531162621" expanded="true" signature="16819:16924" ph="..." />
-            <marker date="1560531162621" expanded="true" signature="16957:17367" ph="..." />
-            <marker date="1560531162621" expanded="true" signature="17398:18335" ph="..." />
-            <marker date="1560531162621" expanded="true" signature="17617:18335" ph="..." />
-            <marker date="1560531162621" expanded="true" signature="18225:18335" ph="..." />
-            <marker date="1560531162621" expanded="true" signature="19197:19234" ph="..." />
+            <marker date="1560536715119" expanded="true" signature="16755:16864" ph="..." />
+            <marker date="1560536715119" expanded="true" signature="16904:17009" ph="..." />
+            <marker date="1560536715119" expanded="true" signature="17042:17452" ph="..." />
+            <marker date="1560536715119" expanded="true" signature="17483:18420" ph="..." />
+            <marker date="1560536715119" expanded="true" signature="17702:18420" ph="..." />
+            <marker date="1560536715119" expanded="true" signature="18310:18420" ph="..." />
+            <marker date="1560536715119" expanded="true" signature="19330:19384" ph="..." />
           </folding>
         </state>
       </provider>
