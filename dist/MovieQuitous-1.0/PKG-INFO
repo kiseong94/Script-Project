@@ -1,0 +1,15 @@
+Metadata-Version: 1.1
+Name: MovieQuitous
+Version: 1.0
+Summary: UNKNOWN
+Home-page: UNKNOWN
+Author: UNKNOWN
+Author-email: UNKNOWN
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: final_project::box_office
+Classifier: final_project::main
+Classifier: final_project::movie_info
+Classifier: final_project::telegram
+Classifier: final_project::theater_info

@@ -1,7 +1,6 @@
 import movie_info
 import box_office
 import theater_info
-import googleMap
 from functools import partial
 import tkinter as tk
 import tkinter.ttk
@@ -14,7 +13,6 @@ import base64
 
 
 
-
 def GetImageFromURL(url):
     u = urllib.request.urlopen(url)
     raw_data = u.read()
@@ -22,6 +20,7 @@ def GetImageFromURL(url):
     image = ImageTk.PhotoImage(im)
     u.close()
     return image
+
 
 class MovieQuitous:
     def __init__(self):
@@ -44,9 +43,6 @@ class MovieQuitous:
         self.frame2_page = 0
         self.IsMovieSearched = False
         self.ShowDetail = False
-        self.Map= None
-
-        self.googleMap = googleMap.GoogleMap()
 
         menu = tk.Frame(self.window,width=1400,height=120,bg='red')
         menu.pack()
@@ -203,7 +199,7 @@ class MovieQuitous:
 
         if self.TheaterInfo != None:
             tk.Label(TheaterInfoFrame, text=self.TheaterInfo['name'], font=('맑은 고딕', 18, 'bold')).place(x=10, y=10)
-#===================================== 상영 정보 스크롤링 ===================================
+#===================================== 상영 정보 스크롤링 ==========================
 
             TheaterInfoSubFrame = tk.Frame(TheaterInfoFrame, width=550, height=460)
             TheaterInfoSubFrame.place(x=0, y=26)
@@ -241,13 +237,6 @@ class MovieQuitous:
                 idx += 1
 
             TheaterInfoSubFrame.place(x=50, y=100)
-
-            img = self.googleMap.GetMapImage()
-            self.Map = tk.Label(TheaterInfoFrame,image=img,width=400, height=400)
-            self.Map.place(x=650,y=150)
-
-            self.Map.bind('<B1-Motion>', self.drag)
-            self.Map.bind('<Button-1>', self.googleMap.click)
 
         TheaterInfoFrame.place(x=300,y=-3)
         TheaterListSubFrame.place(x=0,y=0)
@@ -319,10 +308,6 @@ class MovieQuitous:
     def GetTheaterInfo(self,theater):
         self.TheaterInfo = theater_info.GetMovieInfo(theater)
         self.TheaterInfo['name'] = theater['name']
-        self.TheaterInfo['latitude'] = theater['latitude']
-        self.TheaterInfo['longitude'] = theater['longitude']
-        self.TheaterInfo['code'] = theater['code']
-        self.googleMap.StartMap(self.TheaterInfo['latitude'],self.TheaterInfo['longitude'])
         self.ChangeFrame(3)
 
     def FrameConfigure(self,event):
@@ -333,14 +318,6 @@ class MovieQuitous:
 
     def ComboBoxCallBack(self,event):
         self.ChangeFrame(3)
-
-    def drag(self, event):
-        self.googleMap.drag(event.x,event.y)
-        self.Map.configure(image=self.googleMap.GetMapImage())
-
-    def zoom(self, event):
-        self.googleMap.drag(event.x,event.y)
-        self.Map.configure(image=self.googleMap.GetMapImage())
 
     def LoadImage(self):
         self.bg = tk.PhotoImage(file="image/bg0.gif")
